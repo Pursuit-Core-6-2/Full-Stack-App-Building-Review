@@ -84,7 +84,7 @@ class Inventory {
     return null
   }
 
-  updateItem() { }
+  updateItem(itemDetails, type) { }
 
   getAllItems() { }
 

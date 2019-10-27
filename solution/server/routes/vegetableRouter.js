@@ -1,7 +1,7 @@
 /*
 
 /inventory/vegetable
-- POST [In Progress]
+- POST [DONE]
 - GET [DONE]
 /inventory/vegetable/<veg_id>
 - GET [DONE]
