@@ -4,17 +4,34 @@
 // Get all
 // Get by Id
 
+const Vegetable = require('../models/Vegetable')
+
 class Inventory {
   constructor() {
     this.vegetables = [];
     this.bread = [];
+    this.counterId = 1;
   }
 
-  addItem(item) {
-    if (item.type === 'vegetable') {
-      this.vegetables.push(item)
-    } else if (item.type == 'bread') {
-      this.bread.push(item)
+  addItem(itemDetails, type) {
+    let itemId = this.counterId;
+    this.counterId++;
+
+    if (type === 'vegetable') {
+      let name = itemDetails.name
+      let unit = itemDetails.unit
+      let units = itemDetails.units
+      let price = itemDetails.price
+      let origin = itemDetails.origin
+
+      // Create vegetable object
+      let newVeggie = new Vegetable(itemId, name, units, price, unit, origin)
+      this.vegetables.push(newVeggie)
+
+      return newVeggie;
+    } else if (type == 'bread') {
+      // TODO
+      this.bread.push()
     }
   }
 
@@ -74,32 +91,6 @@ class Inventory {
 }
 
 let myInventory = new Inventory()
-
-let item1 = {
-  id: 1,
-  type: 'bread',
-  name: 'Bagel'
-}
-
-let item2 = {
-  id: 2,
-  type: 'vegetable',
-  name: 'Spinach'
-}
-
-let item3 = {
-  id: 3,
-  type: 'vegetable',
-  name: 'Carrot'
-}
-
-myInventory.addItem(item1)
-myInventory.addItem(item2)
-myInventory.addItem(item3)
-
-// Remove Spinach
-// let removedItem = myInventory.removeItem(2, 'vegetable')
-// console.log('removedItem', removedItem)
 
 module.exports = myInventory;
 
