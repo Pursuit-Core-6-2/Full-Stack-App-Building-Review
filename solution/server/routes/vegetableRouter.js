@@ -28,7 +28,15 @@ router.post('/', (req, res) => {
   let itemDetails = req.body
   console.log('POST req.body', req.body)
   let newVeggie = myInventory.addItem(itemDetails, 'vegetable') // Add vegetable to the inventory
-  res.json(newVeggie)
+
+  if (newVeggie) {
+    res.json(newVeggie)
+  } else {
+    res.status(409)
+    res.json({
+      message: "Error adding veggie. Duplicate names are not allowed"
+    })
+  }
 })
 
 router.patch('/:id', (req, res) => {

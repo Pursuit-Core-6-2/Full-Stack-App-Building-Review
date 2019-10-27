@@ -13,7 +13,31 @@ class Inventory {
     this.counterId = 1;
   }
 
+  getItemByName(name, type) {
+    let filteredInventory;
+
+    if (type === 'vegetable') {
+      filteredInventory = this.vegetables.filter((veg) => {
+        return veg.name === name
+      })
+
+      return filteredInventory[0]
+
+    } else if (type === 'bread') {
+      // TODO
+      // this.vegetables.filter()
+    }
+  }
+
   addItem(itemDetails, type) {
+
+    // Check if item of same name already exists
+    let item = this.getItemByName(itemDetails.name, type)
+    if (item) {
+      console.log('ITEM ALREADY EXISTS', item)
+      return null;
+    }
+
     let itemId = this.counterId;
     this.counterId++;
 
