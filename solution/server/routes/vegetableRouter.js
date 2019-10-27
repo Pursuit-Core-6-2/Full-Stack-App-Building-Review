@@ -5,15 +5,14 @@
 - GET [DONE]
 /inventory/vegetable/<veg_id>
 - GET [DONE]
-- PATCH
-- DELETE
+- PATCH [DONE]
+- DELETE [DONE]
 
 */
 
 
 const express = require('express')
 const myInventory = require('../models/Inventory')
-const Vegetable = require('../models/Vegetable')
 
 const router = express.Router();
 
@@ -27,9 +26,26 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // id, name, units, price, unit, origin
   let itemDetails = req.body
-
+  console.log('POST req.body', req.body)
   let newVeggie = myInventory.addItem(itemDetails, 'vegetable') // Add vegetable to the inventory
   res.json(newVeggie)
+})
+
+router.patch('/:id', (req, res) => {
+  let newDetails = req.body;
+  let id = parseInt(req.params.id)
+
+  console.log('newDetails', newDetails)
+
+  let updatedItem = myInventory.updateItem(id, newDetails, 'vegetable')
+  res.json(updatedItem)
+})
+
+router.delete('/:id', (req, res) => {
+  let id = parseInt(req.params.id)
+
+  let removedItem = myInventory.removeItem(id, 'vegetable')
+  res.json(removedItem)
 })
 
 router.get('/:id', (req, res) => {
@@ -38,4 +54,6 @@ router.get('/:id', (req, res) => {
   res.json(veggie)
 })
 
+// Add a route to delete an item of the inventory
+// use the inventory method removeItem(). Listen for a DELETE method request
 module.exports = router;

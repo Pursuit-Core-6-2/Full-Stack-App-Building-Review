@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 
 const app = express();
 const PORT = 3000;
@@ -10,6 +11,11 @@ const vegetableRouter = require('./routes/vegetableRouter')
 app.use(express.urlencoded({ // Body parser for urlencoded formatted data built into express
   extended: true
 }))
+
+// Parse request bodies coming with a JSON format
+app.use(express.json())
+
+app.use(cors())
 
 // Main routes
 app.use('/inventory/vegetables', vegetableRouter)

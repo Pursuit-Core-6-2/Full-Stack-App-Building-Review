@@ -84,7 +84,20 @@ class Inventory {
     return null
   }
 
-  updateItem(itemDetails, type) { }
+  /*
+  { units: 20, price: 5.25 }
+  */
+  updateItem(id, newDetails, type) {
+    console.log(id, type)
+    let item = this.getItemById(id, type)
+    console.log(item)
+
+    for (let property in newDetails) {
+      item[property] = newDetails[property]
+    }
+
+    return item;
+  }
 
   getAllItems() { }
 
