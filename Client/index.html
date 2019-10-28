@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <link href="index.css" rel="stylesheet">
+    <title>Inventory Management</title>
+</head>
+
+<body>
+    <h1>Store Inventory</h1>
+    
+    <div id="selection">
+        <button id="selectVeggie">Vegetables Inventory</button>
+        <button id="selectBread">Bread Inventory</button>
+        <button id="selectAllItems">All Inventory</button>
+    </div>
+    <hr>
+
+    <div id="vegetableDiv">
+        <h3>Add Vegetable</h3>
+        <form id="addOrEditVeggie">
+            <label for="veggieName">Name: </label>
+            <input id="veggieName" type="text">
+            <br>
+            <label for="veggiePrice">Price: </label>
+            <input id="veggiePrice" type="number" step="0.01">
+            <br>
+            <label for="veggieUnits">Units: </label>
+            <input id="veggieUnits" type="Number" step="0.01">
+            <br>
+            <label for="veggieOrigin">Origin: </label>
+            <input id="veggieOrigin" type="text">
+            <br>
+            <label for="veggieUnit">Unit: </label>
+            <input id="veggieUnit" type="text">
+            <br>
+            <button>Submit</button>
+        </form>
+        <hr>
+        <form id="getVeggies">
+            <label for="veggieId"></label>
+            <input id="veggieId" type="number">
+            <button>Get Vegetable(s)</button>
+        </form>
+    </div>
+
+    <div id="breadDiv">
+        <h3>Add Bread</h3>
+        <form id="addOrEditBread">
+            <label for="breadName">Name: </label>
+            <input id="breadName" type="text">
+            <br>
+            <label for="breadPrice">Price: </label>
+            <input id="breadPrice" type="number" step="0.01">
+            <br>
+            <label for="breadUnits">Units: </label>
+            <input id="breadUnits" type="Number" step="0.01">
+            <br>
+            <label for="breadBakery">Bakery: </label>
+            <input id="breadBakery" type="text">
+            <br>
+            <label for="Bread_Type">Bread Type: </label>
+            <input id="Bread_Type" type="text">
+            <br>
+            <button>Submit</button>
+        </form>
+        <hr>
+        <form id="getBread">
+            <label for="breadId"></label>
+            <input id="breadId" type="number">
+            <button>Get Bread</button>
+        </form>
+    </div>
+
+    <div id="allItemsDiv">
+        <ul></ul>
+    </div>
+    <div id="feedbackDiv">
+        <div>X</div>
+        <p></p>
+    </div>
+
+    <div id="editVeggieDiv">
+        <form id="editVeggie">
+            <input id="editVeggieID" readonly>
+            <br>
+            <label for="editVeggieName">Name: </label>
+            <input id="editVeggieName" type="text">
+            <br>
+            <label for="editVeggiePrice">Price: </label>
+            <input id="editVeggiePrice" type="number" step="0.01">
+            <br>
+            <label for="editVeggieUnits">Units: </label>
+            <input id="editVeggieUnits" type="Number" step="0.01">
+            <br>
+            <label for="editVeggieOrigin">Origin: </label>
+            <input id="editVeggieOrigin" type="text">
+            <br>
+            <label for="editVeggieUnit">Unit: </label>
+            <input id="editVeggieUnit" type="text">
+            <br>
+            <button>Save</button>
+        </form>
+    </div>
+
+    <div id="editBreadDiv">
+        <form id="editBread">
+            <input id="editBreadID" readonly>
+            <br>
+            <label for="editBreadName">Name: </label>
+            <input id="editBreadName" type="text">
+            <br>
+            <label for="editBreadPrice">Price: </label>
+            <input id="editBreadPrice" type="number" step="0.01">
+            <br>
+            <label for="editBreadUnits">Units: </label>
+            <input id="editBreadUnits" type="Number" step="0.01">
+            <br>
+            <label for="editBreadBakery">Bakery: </label>
+            <input id="editBreadBakery" type="text">
+            <br>
+            <label for="editBreadType">Bread Type: </label>
+            <input id="editBreadType" type="text">
+            <br>
+            <button>Save</button>
+        </form>
+    </div>
+
+</body>
+</html>
